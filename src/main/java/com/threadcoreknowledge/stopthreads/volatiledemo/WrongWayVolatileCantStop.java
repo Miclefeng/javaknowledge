@@ -4,10 +4,10 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
 /**
- * 陷入阻塞是，volatile 是无法停止线程的，
+ * 陷入阻塞时，volatile 是无法停止线程的，
  * 此例中，生产者的生产速度很快，消费者消费速度慢，所以阻塞队列满了之后，
  * 生产者会产生阻塞，等待消费者进一步消费
- *
+ * <p>
  * 如果我们遇到了线程长时间阻塞，就没有办法及时唤醒它，或者永远无法唤醒它,
  * 而interrupt就是把 wait 等长时间阻塞作为一种特殊的情况处理了，所以我们
  * 应该用 interrupt 思维来停止线程.
@@ -50,11 +50,13 @@ class Producer implements Runnable {
         try {
             while (num <= 100000 && !canceled) {
                 if (num % 100 == 0) {
+                    // put 产生阻塞一直等待消费
                     storage.put(num);
                     System.out.println(num + " 是100的倍数,被放到仓库中了.");
                 }
                 num++;
-                Thread.sleep(1);
+                // 每 100 次放入一个数据正好 sleep 100ms, 外部循环 sleep 100ms 无法达到阻塞状态
+//                Thread.sleep(1);
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -73,7 +75,7 @@ class Consumer {
     }
 
     public boolean needMoreNums() {
-        if (Math.random() > 0.9) {
+        if (Math.random() > 0.95) {
             return false;
         }
         return true;
