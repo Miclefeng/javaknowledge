@@ -1,0 +1,39 @@
+package com.synchronizedlearn;
+
+/**
+ * 类锁
+ * 1、只有一个类对象，所谓的类锁就是 class 对象的锁
+ * 类锁只能在同一时刻被一个对象所拥有
+ */
+public class SynchronizedClassStatic implements Runnable {
+
+    public static SynchronizedClassStatic instance1 = new SynchronizedClassStatic();
+    public static SynchronizedClassStatic instance2 = new SynchronizedClassStatic();
+
+    public static void main(String[] args) {
+        Thread t1 = new Thread(instance1);
+        Thread t2 = new Thread(instance2);
+        t1.start();
+        t2.start();
+
+        while (t1.isAlive() || t2.isAlive()) {
+
+        }
+        System.out.println("Finished.");
+    }
+
+    @Override
+    public void run() {
+        method();
+    }
+
+    public static synchronized void method() {
+        System.out.println("我是类锁的 static 形式：" + Thread.currentThread().getName());
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println(Thread.currentThread().getName() + "运行结束.");
+    }
+}

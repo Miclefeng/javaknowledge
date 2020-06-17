@@ -1,6 +1,6 @@
 package com.synchronizedlearn;
 
-public class DisappearRequest1  implements Runnable {
+public class DisappearRequest1 implements Runnable {
 
     public static DisappearRequest1 instance = new DisappearRequest1();
 
@@ -18,8 +18,8 @@ public class DisappearRequest1  implements Runnable {
     }
 
     @Override
-    public void run() {
-        for (int j=0; j<100000; j++) {
+    public synchronized void run() {
+        for (int j = 0; j < 100000; j++) {
             /**
              * i++ 实际上分为3步
              * 1、在内存中读取 i 的值
