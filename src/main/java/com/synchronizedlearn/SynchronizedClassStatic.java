@@ -11,6 +11,10 @@ public class SynchronizedClassStatic implements Runnable {
     public static SynchronizedClassStatic instance2 = new SynchronizedClassStatic();
 
     public static void main(String[] args) {
+        /**
+         * 两个线程访问不同对象的synchronized静态方法会发生锁等待
+         * 因为synchronized 修饰的static方法，产生的是类锁，所以会等待锁
+         */
         Thread t1 = new Thread(instance1);
         Thread t2 = new Thread(instance2);
         t1.start();

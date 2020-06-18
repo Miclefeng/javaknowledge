@@ -9,6 +9,10 @@ public class SynchronizedObjectMethod implements Runnable {
     public static SynchronizedObjectMethod instance = new SynchronizedObjectMethod();
 
     public static void main(String[] args) {
+        /**
+         * 同时访问一个对象的同步普通方法，会发生锁的等待
+         * 同步普通方法锁定对象 this，两个线程获取到的是同一把锁，所以发生等待
+         */
         Thread t1 = new Thread(instance);
         Thread t2 = new Thread(instance);
         t1.start();
