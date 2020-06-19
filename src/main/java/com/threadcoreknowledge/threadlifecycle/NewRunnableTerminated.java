@@ -1,5 +1,8 @@
 package com.threadcoreknowledge.threadlifecycle;
 
+/**
+ * new  runnable terminated 3种状态
+ */
 public class NewRunnableTerminated implements Runnable {
 
     public static void main(String[] args) {
