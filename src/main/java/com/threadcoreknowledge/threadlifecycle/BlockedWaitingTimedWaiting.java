@@ -38,6 +38,7 @@ public class BlockedWaitingTimedWaiting implements Runnable {
     private synchronized void sync() {
         try {
             Thread.sleep(1000);
+            // t1正在执行的wait()方法会释放锁资源，从而t2可以拿到锁，正在sleep，所以是TIMED_WAITING
             wait();
         } catch (InterruptedException e) {
             e.printStackTrace();
