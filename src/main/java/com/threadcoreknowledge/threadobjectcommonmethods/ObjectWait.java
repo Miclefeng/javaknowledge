@@ -6,6 +6,13 @@ package com.threadcoreknowledge.threadobjectcommonmethods;
  *  t1 获取到 synchronized锁开始执行，然后执行 wait() 释放了 synchronized 锁，t2 获取到 synchronized 锁，开始执行 notify()
  *  t2 会在执行完毕后释放 synchronized 锁，t1 便会拿到 synchronized 锁，开始后续执行
  * 2、 wait 释放 synchronized 加的 monitor 锁
+ *
+ *    wait() 需要放在同步代码块中使用，保证 notify()/wait() 的交替运行，
+ * 避免notify()先执行导致死锁问题
+ *    wait()/notify()/notifyAll() 定义在 Object 里面，是锁级别的操作，锁是绑定在某个
+ * 对象上，这样一个线程就可以获取多个锁。
+ *    Thread.wait Thread类特殊，会在线程结束的时候调用notify()
+ *
  */
 public class ObjectWait {
 

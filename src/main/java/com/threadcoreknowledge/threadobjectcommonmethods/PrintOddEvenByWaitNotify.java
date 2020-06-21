@@ -1,7 +1,5 @@
 package com.threadcoreknowledge.threadobjectcommonmethods;
 
-import sun.net.www.protocol.http.HttpURLConnection;
-
 /**
  * 通过 wait/notify 实现轮流打印奇偶数
  */
