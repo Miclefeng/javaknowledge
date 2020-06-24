@@ -1,4 +1,4 @@
-package basic.knowledge;
+package com.basic.knowledge;
 
 public class StringTest {
 
