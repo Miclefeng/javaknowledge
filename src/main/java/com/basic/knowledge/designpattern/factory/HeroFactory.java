@@ -1,22 +1,22 @@
 package com.basic.knowledge.designpattern.factory;
 
-import com.basic.knowledge.designpattern.factory.hero.Camille;
-import com.basic.knowledge.designpattern.factory.hero.Diana;
-import com.basic.knowledge.designpattern.factory.hero.Irelia;
+import com.basic.knowledge.designpattern.factory.hero.CamilleImpl;
+import com.basic.knowledge.designpattern.factory.hero.DianaImpl;
+import com.basic.knowledge.designpattern.factory.hero.IreliaImpl;
 
 public class HeroFactory {
 
-    public static SkillImpl getHero(String name) {
-        SkillImpl skillImpl = null;
+    public static ISkill getHero(String name) {
+        ISkill skillImpl = null;
         switch (name) {
             case "Diana":
-                skillImpl = new Diana();
+                skillImpl = new DianaImpl();
                 break;
             case "Irelia":
-                skillImpl = new Irelia();
+                skillImpl = new IreliaImpl();
                 break;
             case "Camille":
-                skillImpl = new Camille();
+                skillImpl = new CamilleImpl();
                 break;
         }
         return skillImpl;

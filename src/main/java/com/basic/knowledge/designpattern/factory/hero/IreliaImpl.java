@@ -1,8 +1,8 @@
 package com.basic.knowledge.designpattern.factory.hero;
 
-import com.basic.knowledge.designpattern.factory.SkillImpl;
+import com.basic.knowledge.designpattern.factory.ISkill;
 
-public class Irelia implements SkillImpl {
+public class IreliaImpl implements ISkill {
     @Override
     public void q() {
         print("Q");

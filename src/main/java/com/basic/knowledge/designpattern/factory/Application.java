@@ -17,7 +17,7 @@ public class Application {
         System.out.println("Enter your select hero:");
         Scanner scanner = new Scanner(System.in);
         String name = scanner.nextLine();
-        SkillImpl skill = HeroFactory.getHero(name);
+        ISkill skill = HeroFactory.getHero(name);
         skill.r();
     }
 }

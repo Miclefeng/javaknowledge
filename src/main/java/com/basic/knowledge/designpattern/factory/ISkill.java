@@ -1,6 +1,6 @@
 package com.basic.knowledge.designpattern.factory;
 
-public interface SkillImpl {
+public interface ISkill {
 
     void q();
 

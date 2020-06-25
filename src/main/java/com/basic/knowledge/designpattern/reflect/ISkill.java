@@ -1,6 +1,6 @@
 package com.basic.knowledge.designpattern.reflect;
 
-public interface SkillImpl {
+public interface ISkill {
 
     void q();
 

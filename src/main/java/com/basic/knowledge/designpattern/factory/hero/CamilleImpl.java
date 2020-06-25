@@ -1,8 +1,8 @@
-package com.basic.knowledge.designpattern.reflect.hero;
+package com.basic.knowledge.designpattern.factory.hero;
 
-import com.basic.knowledge.designpattern.reflect.SkillImpl;
+import com.basic.knowledge.designpattern.factory.ISkill;
 
-public class Diana implements SkillImpl {
+public class CamilleImpl implements ISkill {
     @Override
     public void q() {
         print("Q");

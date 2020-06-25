@@ -15,7 +15,7 @@ public class Application {
 
     public static void main(String[] args) throws IllegalAccessException, InstantiationException, ClassNotFoundException {
         String name = getPlayerInput();
-        SkillImpl skill = HeroFactory.getHero(name);
+        ISkill skill = HeroFactory.getHero(name);
         skill.r();
     }
 

@@ -2,7 +2,7 @@ package com.basic.knowledge.designpattern.reflect;
 
 public class HeroFactory {
 
-    public static SkillImpl getHero(String name) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+    public static ISkill getHero(String name) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
         // 反射、元类
         // 类是对 对象的抽象
         // 元类是对类的描述
@@ -10,6 +10,6 @@ public class HeroFactory {
         String classPackage = "com.basic.knowledge.designpattern.reflect.hero." + name;
         Class<?> cla = Class.forName(classPackage);
         Object object = cla.newInstance();
-        return (SkillImpl) object;
+        return (ISkill) object;
     }
 }
