@@ -9,7 +9,7 @@ public class Application {
         classUtilString.printFieldMessage();
         classUtilString.printConstructorMessage();
 
-        Integer i = new Integer(1);
+        Integer i = 1;
         ClassUtil classUtilInteger = new ClassUtil(i);
         classUtilInteger.printClassMessage();
         classUtilInteger.printFieldMessage();
