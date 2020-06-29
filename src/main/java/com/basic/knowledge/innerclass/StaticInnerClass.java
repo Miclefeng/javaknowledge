@@ -1,7 +1,9 @@
 package com.basic.knowledge.innerclass;
 
+/**
+ * 使用内部类实现类似方法多返回值
+ */
 public class StaticInnerClass {
-
     public static void main(String[] args) {
         double[] d = new double[20];
         for (int i = 0; i < 20; i++) {
