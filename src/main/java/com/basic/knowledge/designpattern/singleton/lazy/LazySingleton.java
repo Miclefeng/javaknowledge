@@ -1,4 +1,4 @@
-package com.basic.knowledge.designpattern.singleton;
+package com.basic.knowledge.designpattern.singleton.lazy;
 
 /**
  * 懒加载单例模式
