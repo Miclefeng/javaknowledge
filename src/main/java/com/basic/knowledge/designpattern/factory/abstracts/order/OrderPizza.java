@@ -7,6 +7,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
+ * 工厂模式的意义
+ * 将对象的实例化的代码提取出来，放到一个类里面统一管理和维护，达到和主项目的依赖关系解耦
+ *
+ * 设计模式依赖抽象原则
+ *  1) 创建对象实例时，不要直接 new 类，而是把这个 new 类的动作放到一个工厂方法里面，并返回
+ *  2) 不要让类继承具体的类，而是继承抽象类火灾实现interface
+ *  3) 不要覆盖基类中已经实现的方法
  * @author miclefengzss
  */
 public class OrderPizza {
