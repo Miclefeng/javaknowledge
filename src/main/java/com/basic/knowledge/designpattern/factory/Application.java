@@ -10,6 +10,7 @@ import java.util.Scanner;
  * 5. 对象实例化是不可消除的
  * 6. 把对象实例化的过程，转移到其他代码片段中去
  * 7. 代码总是不稳定的，隔离这些不稳定，保证其它的代码是稳定的
+ * @author miclefengzss
  */
 public class Application {
 
