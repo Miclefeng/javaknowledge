@@ -2,6 +2,7 @@ package com.threadcoreknowledge.createthreads;
 
 /**
  * 使用 Thread 方式实现线程
+ * @author miclefengzss
  */
 public class ThreadStyle extends Thread {
 

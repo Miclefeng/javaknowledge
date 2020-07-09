@@ -2,6 +2,7 @@ package com.threadcoreknowledge.createthreads.wrongways;
 
 /**
  * 通过 lambda 表达式创建线程
+ * @author miclefengzss
  */
 public class LambdaDemo {
 

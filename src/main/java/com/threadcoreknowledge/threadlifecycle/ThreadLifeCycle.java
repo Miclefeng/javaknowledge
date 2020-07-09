@@ -8,6 +8,7 @@ package com.threadcoreknowledge.threadlifecycle;
  * 4、Waiting        Object.wait() / Thread.join() / LockSupport.park()
  * 5、Timed Waiting  Thread.sleep(time) / Object.wait(time) / Thread.join(time) / LockSupport.parkNanos(time) / LockSupport.parkUntil(time)
  * 6、Terminated     线程被终止
+ * @author miclefengzss
  */
 public class ThreadLifeCycle {
 }

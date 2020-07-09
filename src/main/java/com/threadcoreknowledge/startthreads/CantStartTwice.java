@@ -2,6 +2,7 @@ package com.threadcoreknowledge.startthreads;
 
 /**
  * 不能两次调用 start 方法，否则会报错
+ * @author miclefengzss
  */
 public class CantStartTwice {
 

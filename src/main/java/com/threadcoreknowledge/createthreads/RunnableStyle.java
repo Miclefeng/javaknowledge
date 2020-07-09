@@ -2,6 +2,7 @@ package com.threadcoreknowledge.createthreads;
 
 /**
  * 使用 Runnable 方式实现线程
+ * @author miclefengzss
  */
 public class RunnableStyle implements Runnable {
 

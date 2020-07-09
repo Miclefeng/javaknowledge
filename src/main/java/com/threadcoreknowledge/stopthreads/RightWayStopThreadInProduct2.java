@@ -4,6 +4,7 @@ package com.threadcoreknowledge.stopthreads;
  * 如果不想或者无法传递 InterruptedException ，那么应该在 catch 子句中调用
  * Thread.currentThread().interrupt() 来恢复设置中断状态，以便于在后续的执行依然能够
  * 检测到刚才放生的中断
+ * @author miclefengzss
  */
 public class RightWayStopThreadInProduct2 implements Runnable {
 

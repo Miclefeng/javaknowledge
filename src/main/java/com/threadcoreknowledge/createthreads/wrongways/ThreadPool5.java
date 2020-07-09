@@ -6,6 +6,7 @@ import java.util.concurrent.Executors;
 
 /**
  * 线程池创建线程的方式
+ * @author miclefengzss
  */
 public class ThreadPool5 {
 

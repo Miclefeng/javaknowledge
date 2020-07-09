@@ -14,6 +14,7 @@ public class SynchronizedReEntryDifferentClass {
 
 class SubspendClass extends SynchronizedReEntryDifferentClass {
 
+    @Override
     public synchronized void doSomething() {
         System.out.println("我是子类的方法.");
         super.doSomething();

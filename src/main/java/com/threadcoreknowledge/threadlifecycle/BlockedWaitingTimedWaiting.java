@@ -2,6 +2,7 @@ package com.threadcoreknowledge.threadlifecycle;
 
 /**
  * blocked  waiting  timed_waiting 3种状态
+ * @author miclefengzss
  */
 public class BlockedWaitingTimedWaiting implements Runnable {
 

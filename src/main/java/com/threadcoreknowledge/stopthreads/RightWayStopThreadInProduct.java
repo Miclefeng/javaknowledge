@@ -16,6 +16,7 @@ package com.threadcoreknowledge.stopthreads;
  * 8、java.util.concurrent.Exchanger.exchange(V)
  * 9、java.nio.channels.InterruptibleChannel相关方法
  * 10、java.nio.channels.Selector的相关方法
+ * @author miclefengzss
  */
 public class RightWayStopThreadInProduct implements Runnable {
 

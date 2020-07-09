@@ -2,6 +2,7 @@ package com.threadcoreknowledge.startthreads;
 
 /**
  * 两种方式运行线程
+ * @author miclefengzss
  */
 public class StartAndRunMethod {
 

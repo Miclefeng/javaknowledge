@@ -2,6 +2,7 @@ package com.threadcoreknowledge.createthreads.wrongways;
 
 /**
  * 通过 匿名内部类创建线程
+ * @author miclefengzss
  */
 public class AnonymousInnerClassDemo {
 

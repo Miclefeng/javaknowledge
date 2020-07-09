@@ -2,6 +2,7 @@ package com.threadcoreknowledge.createthreads;
 
 /**
  * 同时使用 Runnable 和 Thread 方式实现线程
+ * @author miclefengzss
  */
 public class BothRunnableThread {
 

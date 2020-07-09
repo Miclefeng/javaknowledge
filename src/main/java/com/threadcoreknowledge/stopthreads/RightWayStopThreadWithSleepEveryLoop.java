@@ -1,5 +1,8 @@
 package com.threadcoreknowledge.stopthreads;
 
+/**
+ * @author miclefengzss
+ */
 public class RightWayStopThreadWithSleepEveryLoop {
 
     public static void main(String[] args) throws InterruptedException {
