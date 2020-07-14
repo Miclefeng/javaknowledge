@@ -11,7 +11,7 @@ public class WrongWayVolatileFixed {
     public static void main(String[] args) throws InterruptedException {
         WrongWayVolatileFixed wrongWayVolatileFixed = new WrongWayVolatileFixed();
 
-        ArrayBlockingQueue storage = new ArrayBlockingQueue(10);
+        ArrayBlockingQueue<Integer> storage = new ArrayBlockingQueue<>(10);
 
         Producer producer = wrongWayVolatileFixed.new Producer(storage);
         Thread producerThread = new Thread(producer);
@@ -30,9 +30,9 @@ public class WrongWayVolatileFixed {
 
     class Producer implements Runnable {
 
-        BlockingQueue storage;
+        BlockingQueue<Integer> storage;
 
-        public Producer(BlockingQueue storage) {
+        public Producer(BlockingQueue<Integer> storage) {
             this.storage = storage;
         }
 
@@ -57,9 +57,9 @@ public class WrongWayVolatileFixed {
 
     class Consumer {
 
-        BlockingQueue storage;
+        BlockingQueue<Integer> storage;
 
-        public Consumer(BlockingQueue storage) {
+        public Consumer(BlockingQueue<Integer> storage) {
             this.storage = storage;
         }
 

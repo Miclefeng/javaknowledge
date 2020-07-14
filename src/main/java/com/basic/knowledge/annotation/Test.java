@@ -28,7 +28,9 @@ public class Test {
 
         // 2、 获取到表名
         boolean tExist = c.isAnnotationPresent(Table.class);
-        if (!tExist) return null;
+        if (!tExist) {
+            return null;
+        }
         Table table = (Table) c.getAnnotation(Table.class);
         String tableName = table.value();
         sql.append("SELECT * FROM ").append(tableName).append(" WHERE 1=1");
@@ -39,13 +41,15 @@ public class Test {
         for (Field field : fields) {
             // 获取数据库字段名
             boolean fExist = field.isAnnotationPresent(Column.class);
-            if (!fExist) continue;
+            if (!fExist) {
+                continue;
+            }
             Column column = field.getAnnotation(Column.class);
             String columnName = column.value();
             Object fieldValue = null;
             try {
                 // 获取类方法名
-                String getMethodName = "get" + UCFirst(field.getName());
+                String getMethodName = "get" + uCFirst(field.getName());
                 Method method = c.getMethod(getMethodName);
                 // 通过反射调用方法获取属性的值
                 fieldValue = method.invoke(f);
@@ -68,7 +72,7 @@ public class Test {
      * @param s
      * @return
      */
-    private static String UCFirst(String s) {
+    private static String uCFirst(String s) {
         char[] charArray = s.toCharArray();
         charArray[0] &= 0xdf;
         return String.valueOf(charArray);
