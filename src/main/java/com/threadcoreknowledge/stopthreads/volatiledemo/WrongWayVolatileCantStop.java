@@ -11,6 +11,7 @@ import java.util.concurrent.BlockingQueue;
  * 如果我们遇到了线程长时间阻塞，就没有办法及时唤醒它，或者永远无法唤醒它,
  * 而interrupt就是把 wait 等长时间阻塞作为一种特殊的情况处理了，所以我们
  * 应该用 interrupt 思维来停止线程.
+ * @author miclefengzss
  */
 public class WrongWayVolatileCantStop {
 
