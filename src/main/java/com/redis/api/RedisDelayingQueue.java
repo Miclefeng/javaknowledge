@@ -60,7 +60,7 @@ public class RedisDelayingQueue<T> {
 
     public static void main(String args[]) {
         Jedis jedis = new Jedis("127.0.0.1", 6379);
-        jedis.auth("Ps!s5tlshitsaym");
+        jedis.auth("zss123456");
 
         RedisDelayingQueue<String> queue = new RedisDelayingQueue<>(jedis, "delay-queue");
 
