@@ -3,10 +3,14 @@ package com.basic.knowledge.object;
 import java.time.LocalDate;
 import java.util.Objects;
 
+/**
+ * @author miclefengzss
+ */
 public class Employee {
-    private String name;
+
+    private final String name;
     private double salary;
-    private LocalDate hireDay;
+    private final LocalDate hireDay;
 
     public Employee(String name, double salary, int year, int month, int day) {
         this.name = name;
@@ -33,8 +37,12 @@ public class Employee {
 
     @Override
     public boolean equals(Object otherObject) {
-        if (this == otherObject) return true;
-        if (otherObject == null || getClass() != otherObject.getClass()) return false;
+        if (this == otherObject) {
+            return true;
+        }
+        if (otherObject == null || getClass() != otherObject.getClass()) {
+            return false;
+        }
         Employee other = (Employee) otherObject;
         return Objects.equals(name, other.name) && salary == other.salary && Objects.equals(hireDay, other.hireDay);
     }

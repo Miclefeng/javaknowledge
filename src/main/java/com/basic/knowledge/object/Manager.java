@@ -21,7 +21,9 @@ public class Manager extends Employee {
 
     @Override
     public boolean equals(Object otherObject) {
-        if (!super.equals(otherObject)) return false;
+        if (!super.equals(otherObject)) {
+            return false;
+        }
         Manager other = (Manager) otherObject;
         return bonus == other.bonus;
     }
