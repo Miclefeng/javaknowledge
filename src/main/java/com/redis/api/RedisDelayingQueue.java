@@ -1,4 +1,4 @@
-package redis.api;
+package com.redis.api;
 
 import java.lang.reflect.Type;
 import java.util.Set;

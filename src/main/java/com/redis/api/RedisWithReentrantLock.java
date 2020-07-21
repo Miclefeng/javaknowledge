@@ -1,4 +1,4 @@
-package redis.api;
+package com.redis.api;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.params.SetParams;
