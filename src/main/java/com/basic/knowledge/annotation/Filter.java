@@ -1,5 +1,8 @@
 package com.basic.knowledge.annotation;
 
+/**
+ * @author miclefengzss
+ */
 @Table("users")
 public class Filter {
 

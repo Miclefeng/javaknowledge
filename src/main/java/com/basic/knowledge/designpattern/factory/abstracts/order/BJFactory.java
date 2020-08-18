@@ -12,9 +12,9 @@ public class BJFactory implements AbstractFactory {
     @Override
     public Pizza createPizza(String orderType) {
         Pizza pizza = null;
-        if (orderType.equals("cheese")) {
+        if ("cheese".equals(orderType)) {
             pizza = new BJCheesePizza();
-        } else if (orderType.equals("pepper")) {
+        } else if ("pepper".equals(orderType)) {
             pizza = new BJPepperPizza();
         }
         return pizza;

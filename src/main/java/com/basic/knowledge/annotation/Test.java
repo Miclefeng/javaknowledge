@@ -3,6 +3,19 @@ package com.basic.knowledge.annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
+/**
+ * 元注解:
+ * Retention: 指定所修饰的 Annotation 的生命周期，SOURCE / CLASS (默认) /
+ * RUNTIME (只有声明为 RUNTIME 的注解，才能通过反射获取)
+ * <p>
+ * Target: 指定所修饰的 Annotation 能用于修饰程序的哪些程序元素
+ * <p>
+ * Documented: 表示所修饰的 Annotation 被 javadoc 解析时，保留下来
+ * <p>
+ * Inherited: 表示被修饰的 Annotation 具有继承性，子类自动具有父类的注解
+ *
+ * @author miclefengzss
+ */
 public class Test {
 
     public static void main(String[] args) {
