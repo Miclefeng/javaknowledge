@@ -63,7 +63,7 @@ class OnMessageCallback implements MqttCallback {
     }
 
     @Override
-    public void messageArrived(String topic, MqttMessage message) throws Exception {
+    public void messageArrived(String topic, MqttMessage message) {
         // subscribe后得到的消息会执行到这里面
         System.out.println("接收消息主题:" + topic);
         System.out.println("接收消息Qos:" + message.getQos());
