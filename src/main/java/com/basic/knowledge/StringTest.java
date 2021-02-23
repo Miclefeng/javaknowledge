@@ -1,6 +1,16 @@
 package com.basic.knowledge;
 
 
+import java.nio.charset.StandardCharsets;
+import java.text.StringCharacterIterator;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.OffsetDateTime;
+import java.util.Calendar;
+import java.util.UUID;
+import java.util.zip.CRC32;
+
 public class StringTest {
 
     private static final char[] HEXCHARS = {
@@ -54,6 +64,29 @@ public class StringTest {
 
         String s1 = "abc";
         System.out.println(String.join(".", s1.split("")));
+        System.out.println("==============================");
+
+        byte[] message = UUID.randomUUID().toString().getBytes(StandardCharsets.UTF_8);
+        CRC32 crc = new CRC32();
+        crc.update(message, 0, message.length);
+        int myCrc = (int )crc.getValue();
+        System.out.println(myCrc);
+        System.out.println(myCrc & 5);
+        System.out.println("===============================");
+        String d = "data={\"sensor\":\"BME680\",\"timestamp\":1604392440.0427563,\"uid\":\"b8:27:eb:5e:69:72\",\"sid\":\"BME680_1\",\"data\":{\"T\":21.39,\"P\":1024.32,\"H\":38.30}}";
+        System.out.println(d.replaceFirst("data=", ""));
+
+        Calendar todayStart = Calendar.getInstance();
+        todayStart.set(Calendar.HOUR_OF_DAY, 0);
+        todayStart.set(Calendar.MINUTE, 0);
+        todayStart.set(Calendar.SECOND, 0);
+        System.err.println(todayStart.getTime().getTime() / 1000);
+        //当天零点
+        long l = LocalDateTime.of(LocalDate.now(), LocalTime.MIN).toEpochSecond(OffsetDateTime.now().getOffset());
+        long l1 = LocalDateTime.of(LocalDate.now(), LocalTime.MIN).plusDays(1).toEpochSecond(OffsetDateTime.now().getOffset());
+
+        System.err.println(l);
+        System.err.println(l1);
     }
 
     /**

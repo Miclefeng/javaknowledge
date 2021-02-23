@@ -1,5 +1,6 @@
-package rabbitmq.api.exchange.consumer;
+package com.rabbitmq.api.exchange.consumer;
 
+import com.alibaba.fastjson.JSON;
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.DefaultConsumer;

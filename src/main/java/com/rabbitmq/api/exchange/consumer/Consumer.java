@@ -1,4 +1,4 @@
-package rabbitmq.api.exchange.consumer;
+package com.rabbitmq.api.exchange.consumer;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -12,8 +12,8 @@ public class Consumer {
     public static void main(String[] args) throws IOException, TimeoutException {
 
         ConnectionFactory connectionFactory = new ConnectionFactory();
-        connectionFactory.setHost("127.0.0.1");
-        connectionFactory.setPort(5672);
+        connectionFactory.setHost("140.143.224.144");
+        connectionFactory.setPort(5682);
         connectionFactory.setVirtualHost("/");
         connectionFactory.setAutomaticRecoveryEnabled(true);
         connectionFactory.setNetworkRecoveryInterval(3000);
@@ -23,10 +23,10 @@ public class Consumer {
         Channel channel = connection.createChannel();
 
         // 声明 exchange和queue 并进行绑定
-        String exchangeName = "test_consumer_exchange";
-        String exchangeType = "topic";
-        String routingKey = "consumer.#";
-        String queueName = "test_consumer_queue";
+        String exchangeName = "iot-push";
+        String exchangeType = "direct";
+        String routingKey = "iot-queue2";
+        String queueName = "iot-queue2";
         channel.exchangeDeclare(exchangeName, exchangeType, true, false, null);
         channel.queueDeclare(queueName, true, false, false, null);
         channel.queueBind(queueName, exchangeName, routingKey);

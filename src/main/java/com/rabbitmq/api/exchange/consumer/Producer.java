@@ -1,4 +1,4 @@
-package rabbitmq.api.exchange.consumer;
+package com.rabbitmq.api.exchange.consumer;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
