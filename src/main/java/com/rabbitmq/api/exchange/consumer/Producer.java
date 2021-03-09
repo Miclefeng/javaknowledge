@@ -7,6 +7,9 @@ import com.rabbitmq.client.ConnectionFactory;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
+/**
+ * @author miclefengzss
+ */
 public class Producer {
 
     public static void main(String[] args) throws IOException, TimeoutException {
