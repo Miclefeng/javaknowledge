@@ -15,7 +15,7 @@ public class Singleton {
 
     }
 
-    public static class InnerClassSingleton {
+    static class InnerClassSingleton {
         public final static Singleton INSTANCE = new Singleton();
     }
 
