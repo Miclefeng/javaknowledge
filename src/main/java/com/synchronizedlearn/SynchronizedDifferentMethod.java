@@ -7,7 +7,7 @@ public class SynchronizedDifferentMethod implements Runnable {
     public static void main(String[] args) {
         /**
          * 同时访问同一个对象的不同的同步方法，会发生锁的等待
-         * 因为synchronized 修饰普通方法默认给对象 this 加锁，所以发生锁等待
+         * 因为 synchronized 修饰普通方法默认给对象 this 加锁，所以发生锁等待
          */
         Thread t1 = new Thread(instance);
         Thread t2 = new Thread(instance);

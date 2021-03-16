@@ -32,7 +32,7 @@ public class SynchronizedClassStatic implements Runnable {
     }
 
     public static synchronized void method() {
-        System.out.println("我是类锁的 static 形式：" + Thread.currentThread().getName());
+        System.out.println("我是类锁 static 修饰方法的 形式：" + Thread.currentThread().getName());
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
