@@ -32,7 +32,7 @@ public class ObjectInputOutputStreamTest {
         ObjectOutputStream oos = null;
         try {
             oos = new ObjectOutputStream(new FileOutputStream(preName + "objectExec"));
-            oos.writeObject(new StringBuilder("输出无敌麦克风SUCCESSFUL").toString());
+            oos.writeObject("输出无敌麦克风SUCCESSFUL");
             oos.flush();
         } catch (IOException e) {
             e.printStackTrace();
@@ -59,9 +59,7 @@ public class ObjectInputOutputStreamTest {
             Object object = ois.readObject();
             String str = (String) object;
             System.out.println(str);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         } finally {
             try {

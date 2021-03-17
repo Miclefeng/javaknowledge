@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hr SYSTEM "hr.dtd">
+<hr>
+    <employee no="3309">
+        <name>micle</name>
+        <age>28</age>
+        <salary>25000</salary>
+        <department>
+            <dname>Technical</dname>
+            <address>xx - 1003</address>
+        </department>
+    </employee>
+    <employee no="3310">
+        <name>wangdajun</name>
+        <age>26</age>
+        <salary>5000</salary>
+        <department>
+            <dname>Finance</dname>
+            <address>xx - 1003</address>
+        </department>
+    </employee>
+</hr>
