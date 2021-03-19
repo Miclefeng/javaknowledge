@@ -6,13 +6,20 @@
                 <xs:element name="employee" maxOccurs="999">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="name"/>
-                            <xs:element name="age"/>
-                            <xs:element name="salary"/>
+                            <xs:element name="name" type="xs:string"/>
+                            <xs:element name="age" type="xs:integer">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:integer">
+                                        <xs:minInclusive value="18"/>
+                                        <xs:maxInclusive value="100"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="salary" type="xs:integer"/>
                             <xs:element name="department">
                                 <xs:complexType>
                                     <xs:sequence>
-                                        <xs:element name="dname"/>
+                                        <xs:element name="dname" type="xs:string"/>
                                         <xs:element type="xs:string" name="address"/>
                                     </xs:sequence>
                                 </xs:complexType>

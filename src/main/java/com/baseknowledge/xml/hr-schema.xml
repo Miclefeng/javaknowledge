@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<hr xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
-    xs:noNamespaceSchemaLocation="hr-schema.xsd">
+<?xml version="1.0" encoding="utf-8"?>
+<hr xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="hr-schema.xsd">
     <employee no="3309">
         <name>micle</name>
         <age>28</age>
@@ -12,11 +11,11 @@
     </employee>
     <employee no="3310">
         <name>wangdajun</name>
-        <age>26</age>
+        <age>27</age>
         <salary>5000</salary>
         <department>
             <dname>Finance</dname>
             <address>xx - 1003</address>
         </department>
     </employee>
-</hr>
+<employee no="3311"><name>linxuan</name><age>1</age><salary>-2000</salary><department><dname>home</dname><address>taian</address></department></employee></hr>

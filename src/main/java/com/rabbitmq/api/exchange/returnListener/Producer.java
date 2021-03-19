@@ -1,4 +1,4 @@
-package rabbitmq.api.exchange.returnListener;
+package com.rabbitmq.api.exchange.returnListener;
 
 import com.rabbitmq.client.*;
 
