@@ -2,11 +2,14 @@ package com.baseknowledge;
 
 
 import java.nio.charset.StandardCharsets;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.UUID;
 import java.util.zip.CRC32;
 
@@ -24,7 +27,7 @@ public class StringTest {
 //        // "xxx" + pid == dog  => 用()来改写   ("xxx" + pid) == dog
 //        System.out.println("Animals are equal: " + pig == dog1);//6
         String str = "9d4f2eabd846478d4f735c33f0a96c363c22fbbfa9ad";
-        System.out.println(str.substring(str.length()-12));
+        System.out.println(str.substring(str.length() - 12));
         System.out.println((int) (System.currentTimeMillis() / 1000));
 
         String s = "teSt138HellWorld";
@@ -49,7 +52,7 @@ public class StringTest {
         byte[] message = UUID.randomUUID().toString().getBytes(StandardCharsets.UTF_8);
         CRC32 crc = new CRC32();
         crc.update(message, 0, message.length);
-        int myCrc = (int )crc.getValue();
+        int myCrc = (int) crc.getValue();
         System.out.println(myCrc);
         System.out.println(myCrc & 5);
         System.out.println("===============================");
@@ -67,6 +70,13 @@ public class StringTest {
 
         System.err.println(l);
         System.err.println(l1);
+        System.out.println("===============================");
+        str = "visit_id=1&";
+        System.out.println(str.substring(0, str.length() - 1));
+        System.out.println("===============================");
+        System.out.println(timeStamp2Date(getCurrentTime()+"", "yyyy年MM月dd日HH:mm")+"-"+timeStamp2Date((getCurrentTime()+3600)+"", "HH:mm"));
+        System.out.println("===============================");
+        System.out.println(Arrays.asList("a"));
     }
 
     /**
@@ -82,6 +92,21 @@ public class StringTest {
             sb.append(HEXCHARS[data[i] & 0x0f]);
         }
         return sb.toString();
+    }
+
+    public static int getCurrentTime() {
+        return (int) (System.currentTimeMillis() / 1000);
+    }
+
+    public static String timeStamp2Date(String seconds, String format) {
+        if (seconds == null || seconds.isEmpty() || seconds.equals("null")) {
+            return "";
+        }
+        if (format == null || format.isEmpty()) {
+            format = "yyyy-MM-dd HH:mm:ss";
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat(format);
+        return sdf.format(new Date(Long.parseLong(seconds + "000")));
     }
 }
 

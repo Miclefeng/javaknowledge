@@ -45,7 +45,7 @@ class ExceptionLink {
         try {
             testThree();
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
@@ -57,7 +57,7 @@ class ExceptionLink {
         try {
             testOne();
         } catch (Exception e) {
-            throw new Exception("新产生的异常1...", e);
+            throw new Exception(e.getMessage());
         }
     }
 
@@ -65,9 +65,10 @@ class ExceptionLink {
         try {
             testTwo();
         } catch (Exception e) {
-            Exception exception = new Exception("新产生的异常2...");
-            exception.initCause(e);
-            throw exception;
+//            Exception exception = new Exception("新产生的异常2...");
+//            exception.initCause(e);
+//            throw exception;
+            throw new Exception(e.getMessage());
         }
     }
 }
