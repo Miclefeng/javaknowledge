@@ -15,12 +15,8 @@ public class FileInputStreamDemo {
             }
             System.out.println();
             fileInputStream.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-
         }
 
         System.out.println("===============================================");
@@ -34,12 +30,8 @@ public class FileInputStreamDemo {
             }
             System.out.println();
             fileInputStream.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-
         }
     }
 }
