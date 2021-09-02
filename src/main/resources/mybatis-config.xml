@@ -3,6 +3,20 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+    <settings>
+        <!-- 数据表字段下划线转驼峰 -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+    
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+            <!-- 设置数据库类型 -->
+            <property name="helperDialect" value="mysql"/>
+            <!-- 分页合理化 -->
+            <property name="reasonable" value="true"/>
+        </plugin>
+    </plugins>
+
     <environments default="dev">
         <environment id="dev">
             <transactionManager type="JDBC"/>

@@ -1,5 +1,6 @@
 package com.baseknowledge.mybatis.utils;
 
+import com.sun.xml.internal.ws.api.message.ExceptionHasMessage;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -19,7 +20,7 @@ public class MyBatisUtils {
      */
     private static SqlSessionFactory sqlSessionFactory = null;
 
-    // 初始化 SqlSessionFactory
+    // 利用静态代码块在初始化类的时候实例化 SqlSessionFactory
     static {
         Reader reader;
 
@@ -28,6 +29,7 @@ public class MyBatisUtils {
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
         } catch (IOException e) {
             e.printStackTrace();
+            throw new ExceptionInInitializerError(e);
         }
     }
 
