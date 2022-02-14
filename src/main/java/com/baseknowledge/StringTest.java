@@ -77,6 +77,17 @@ public class StringTest {
         System.out.println(timeStamp2Date(getCurrentTime()+"", "yyyy年MM月dd日HH:mm")+"-"+timeStamp2Date((getCurrentTime()+3600)+"", "HH:mm"));
         System.out.println("===============================");
         System.out.println(Arrays.asList("a"));
+
+        String hexS = "FEFE";
+        HexStringToByteArray(hexS);
+    }
+
+    public static byte[] HexStringToByteArray(String s) {
+        byte data[] = new byte[s.length()/2];
+        for(int i=0;i < s.length();i+=2) {
+            data[i/2] = (Integer.decode("0x"+s.charAt(i)+s.charAt(i+1))).byteValue();
+        }
+        return data;
     }
 
     /**

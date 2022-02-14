@@ -3,6 +3,7 @@ package com.baseknowledge.iostream;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 /**
  * @author miclefengzss
@@ -32,7 +33,7 @@ public class StreamReaderWriterTest {
             FileOutputStream fileOutputStream = new FileOutputStream(destFile);
 
 //          转换流可以包在缓冲流之上
-            isr = new InputStreamReader(new BufferedInputStream(fileInputStream), "UTF-8");
+            isr = new InputStreamReader(new BufferedInputStream(fileInputStream), StandardCharsets.UTF_8);
             osw = new OutputStreamWriter(new BufferedOutputStream(fileOutputStream), "GBK");
 
             char[] cbuf = new char[1024];

@@ -1,0 +1,18 @@
+package com.designpattern.pattern.creational.factory.abstractfactory;
+
+/**
+ * @author miclefengzss
+ * 2021/12/2 上午10:34
+ */
+public class GoCourseFactory implements CourseFactory {
+    
+    @Override
+    public Video getVideo() {
+        return new GoVideo();
+    }
+
+    @Override
+    public Article getArticle() {
+        return new GoArticle();
+    }
+}

@@ -1,6 +1,5 @@
 package com.baseknowledge.mybatis.utils;
 
-import com.sun.xml.internal.ws.api.message.ExceptionHasMessage;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
