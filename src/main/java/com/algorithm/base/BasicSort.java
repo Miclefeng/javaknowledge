@@ -16,13 +16,20 @@ public class BasicSort {
         // 2   - N
         // N-1 - N
         for (int i = 0; i < N; i++) {
-            int minValueIndex = i;
-
-            for (int j = i + 1; j < N; j++) {
-                minValueIndex = (arr[minValueIndex] > arr[j]) ? j : minValueIndex;
+            int minIndex = i;
+            for (int j = i; j < N; j++) {
+                minIndex = (arr[minIndex] > arr[j]) ? j : minIndex;
             }
-            swap(arr, minValueIndex, i);
+            swap(arr, minIndex, i);
         }
+//        for (int i = 0; i < N; i++) {
+//            int minValueIndex = i;
+//
+//            for (int j = i + 1; j < N; j++) {
+//                minValueIndex = (arr[minValueIndex] > arr[j]) ? j : minValueIndex;
+//            }
+//            swap(arr, minValueIndex, i);
+//        }
     }
 
     public static void bubbleSort(int[] arr) {
