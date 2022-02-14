@@ -41,6 +41,14 @@ public class BasicSort {
         // 0  - N-2
         // 0  - N-3
         // 0  - N-(N-1)
+        for (int end = N - 1; end >= 0; end--) {
+            for (int second = 1; second <= end; second++) {
+                if (arr[second - 1] > arr[second]) {
+                    swap(arr, second - 1, second);
+                }
+            }
+        }
+
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N - 1 - i; j++) {
                 if (arr[j] > arr[j + 1]) {
@@ -48,14 +56,6 @@ public class BasicSort {
                 }
             }
         }
-
-//        for (int end = N - 1; end >= 0; end--) {
-//            for (int second = 1; second <= end; second++) {
-//                if (arr[second - 1] > arr[second]) {
-//                    swap(arr, second - 1, second);
-//                }
-//            }
-//        }
     }
 
     public static void insertSort(int[] arr) {
