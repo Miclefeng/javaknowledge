@@ -25,6 +25,6 @@ public class SumOfFactorial {
     }
 
     public static void main(String[] args) {
-        System.out.println(f(10));
+        System.out.println(f(4));
     }
 }

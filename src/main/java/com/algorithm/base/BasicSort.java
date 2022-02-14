@@ -48,9 +48,10 @@ public class BasicSort {
             return;
         }
         int N = arr.length;
-        // 0 - 0   有序 完成
-        // 0 - 1
-        // 0 - 2
+        // 10, 8, 9, 2, 4, 1, 7, 6, 5, 3
+        // 0 - 0  =>  8, 10, 9, 2, 4, 1, 7, 6, 5, 3
+        // 0 - 1  =>  8, 9, 10, 2, 4, 1, 7, 6, 5, 3
+        // 0 - 2  =>  2, 8, 9, 10, 4, 1, 7, 6, 5, 3
         // 0 - N
         for (int end = 1; end < N; end++) {
             for (int pre = end - 1; pre >= 0 && arr[pre] > arr[pre + 1]; pre--) {
