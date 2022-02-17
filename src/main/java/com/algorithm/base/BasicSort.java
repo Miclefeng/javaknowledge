@@ -99,8 +99,8 @@ public class BasicSort {
         int[] arr = {10, 8, 9, 2, 4, 1, 7, 6, 5, 3};
         printArray(arr);
 //        selectionSort(arr);
-        bubbleSort(arr);
-//        insertSort(arr);
+//        bubbleSort(arr);
+        insertSort(arr);
         printArray(arr);
     }
 }
