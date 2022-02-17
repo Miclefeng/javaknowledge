@@ -11,12 +11,14 @@ public class BasicSort {
             return;
         }
         int N = arr.length;
-        // 0   - N     找出最小位置的索引的范围，每次把最小的数放到头部
+        // 0   - N
         // 1   - N
         // 2   - N
         // N-1 - N
+        // 开始位置在变化，i 描述开始位置的变化
         for (int i = 0; i < N; i++) {
             int minIndex = i;
+            // 找出最小位置的索引，每次把最小的数放到 i 位置
             for (int j = i; j < N; j++) {
                 minIndex = (arr[minIndex] > arr[j]) ? j : minIndex;
             }
@@ -41,10 +43,12 @@ public class BasicSort {
         // 0  - N-2
         // 0  - N-3
         // 0  - N-(N-1)
+        // 结尾位置在变化，end描述结尾位置的变化
         for (int end = N - 1; end >= 0; end--) {
-            for (int second = 1; second <= end; second++) {
-                if (arr[second - 1] > arr[second]) {
-                    swap(arr, second - 1, second);
+            // 从0开始，当前数和后一个数进行比较，大的话就交换
+            for (int second = 0; second < end; second++) {
+                if (arr[second] > arr[second + 1]) {
+                    swap(arr, second, second + 1);
                 }
             }
         }
@@ -63,12 +67,15 @@ public class BasicSort {
             return;
         }
         int N = arr.length;
-        // 10, 8, 9, 2, 4, 1, 7, 6, 5, 3
-        // 0 - 0  =>  8, 10, 9, 2, 4, 1, 7, 6, 5, 3
-        // 0 - 1  =>  8, 9, 10, 2, 4, 1, 7, 6, 5, 3
-        // 0 - 2  =>  2, 8, 9, 10, 4, 1, 7, 6, 5, 3
+        // 小的数放到最左边
+        // 0 - 0  =>  10, 8, 9, 2, 4, 1, 7, 6, 5, 3
+        // 0 - 1  =>  8, 10, 9, 2, 4, 1, 7, 6, 5, 3
+        // 0 - 2  =>  8, 9, 10, 2, 4, 1, 7, 6, 5, 3
+        // 0 - 3  =>  2, 8, 9, 10, 4, 1, 7, 6, 5, 3
         // 0 - N
+        // 结尾位置在变，end描述一个结尾的变化
         for (int end = 1; end < N; end++) {
+            // 先判断左边是否有数，有的话判断前一个数和当前数大小，小的话进行交换
             for (int pre = end - 1; pre >= 0 && arr[pre] > arr[pre + 1]; pre--) {
                 swap(arr, pre, pre + 1);
             }
