@@ -1,4 +1,4 @@
-package com.algorithm.base;
+package com.algorithm.base.basesort;
 
 /**
  * @author miclefengzss

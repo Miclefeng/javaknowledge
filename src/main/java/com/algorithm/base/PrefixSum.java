@@ -1,5 +1,7 @@
 package com.algorithm.base;
 
+import com.algorithm.base.basesort.BasicSort;
+
 /**
  * 求数组中 arr[L] 到 arr[R] 的和,可以生成一个前缀和的数组
  *
@@ -8,6 +10,16 @@ package com.algorithm.base;
  */
 public class PrefixSum {
 
+    /**
+     * H[i] = arr[0 - i]的累加和
+     * H[2] = 0 - 2 累加和
+     * H[7] = 0 - 7 累加和
+     *  3 - 7 的累加和 = H[7] - H[2]
+     * @param arr
+     * @param L
+     * @param R
+     * @return
+     */
     public static int rangeSum(int[] arr, int L, int R) {
         int[] ans = new int[arr.length];
 
