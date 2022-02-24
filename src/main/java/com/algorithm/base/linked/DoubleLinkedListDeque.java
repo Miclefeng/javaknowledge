@@ -7,7 +7,7 @@ import java.util.LinkedList;
  * @author miclefengzss
  * 2022/2/23 下午9:04
  */
-public class DoubleLinkedListQueue {
+public class DoubleLinkedListDeque {
 
     static class Node<V> {
         public V value;
