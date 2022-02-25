@@ -1,5 +1,7 @@
 package com.algorithm.base.bitmap;
 
+import java.util.HashSet;
+
 /**
  * @author miclefengzss
  * 2022/2/25 上午9:57
@@ -25,12 +27,32 @@ public class BitMap {
     }
 
     public static void main(String[] args) {
-        int max = 200;
-        int val = 100;
+        System.out.println("测试开始！");
+        int max = 1000000;
         BitMap bitMap = new BitMap(max);
-        bitMap.add(val);
-        System.out.println(bitMap.contains(val));
-        bitMap.delete(val);
-        System.out.println(bitMap.contains(val));
+        HashSet<Integer> set = new HashSet<>();
+        int testTime = 10000000;
+        for (int i = 0; i < testTime; i++) {
+            int num = (int) (Math.random() * (max + 1));
+            double decide = Math.random();
+            if (decide < 0.333) {
+                bitMap.add(num);
+                set.add(num);
+            } else if (decide < 0.666) {
+                bitMap.delete(num);
+                set.remove(num);
+            } else {
+                if (bitMap.contains(num) != set.contains(num)) {
+                    System.out.println("Oops!");
+                    break;
+                }
+            }
+        }
+        for (int num = 0; num <= max; num++) {
+            if (bitMap.contains(num) != set.contains(num)) {
+                System.out.println("Oops!");
+            }
+        }
+        System.out.println("测试结束！");
     }
 }
