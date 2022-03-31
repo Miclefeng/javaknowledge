@@ -46,18 +46,35 @@ public class BinarySearchLocalMinimum {
             return N - 1;
         }
 
-        int l = 0;
-        int r = N - 1;
+//        int l = 0;
+//        int r = N - 1;
+//
+//        while (l < r - 1) {
+//            int mid = (l + r) / 2;
+//            // mid 同时小于 左边 和 右边
+//            if (arr[mid] < arr[mid + 1] && arr[mid] < arr[mid - 1]) {
+//                return mid;
+//            } else {
+//                // 左 < mid  mid > 右
+//                // 左 < mid  mid < 右
+//                // 左 > mid  mid > 右
+//                if (arr[mid] > arr[mid - 1]) {
+//                    r = mid - 1;
+//                } else {
+//                    l = mid + 1;
+//                }
+//            }
+//        }
+//        return arr[l] > arr[r] ? r : l;
 
-        while (l < r - 1) {
-            int mid = (l + r) / 2;
-            // mid 同时小于 左边 和 右边
+        int l = 1;
+        int r = N - 1;
+        // 一直划分到只剩 2 个数
+        while (l < r) {
+            int mid = l + ((r - l) >> 1);
             if (arr[mid] < arr[mid + 1] && arr[mid] < arr[mid - 1]) {
                 return mid;
             } else {
-                // 左 < mid  mid > 右
-                // 左 < mid  mid < 右
-                // 左 > mid  mid > 右
                 if (arr[mid] > arr[mid - 1]) {
                     r = mid - 1;
                 } else {
@@ -65,8 +82,9 @@ public class BinarySearchLocalMinimum {
                 }
             }
         }
-
-        return arr[l] > arr[r] ? r : l;
+        // 只剩 l = r 一个数，直接返回 l 或 r
+        return l;
+//        return arr[l] > arr[r] ? r : l;
     }
 
     /**

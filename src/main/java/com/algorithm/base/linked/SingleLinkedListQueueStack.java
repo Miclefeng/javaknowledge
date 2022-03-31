@@ -123,7 +123,7 @@ public class SingleLinkedListQueueStack {
     public static void testQueue() {
         MyQueue<Integer> myQueue = new MyQueue<>();
         Queue<Integer> testQueue = new LinkedList<>();
-        int maxValue = 2000000;
+        int maxValue = 200;
         int testTime = 1000000;
         System.out.println("Queue testing...");
         for (int i = 0; i < testTime; i++) {
@@ -174,7 +174,7 @@ public class SingleLinkedListQueueStack {
     public static void testStack() {
         MyStack<Integer> myStack = new MyStack<>();
         Stack<Integer> testStack = new Stack<>();
-        int maxValue = 2000000;
+        int maxValue = 200;
         int testTime = 1000000;
         System.out.println("Stack testing...");
         for (int i = 0; i < testTime; i++) {

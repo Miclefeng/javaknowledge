@@ -1,6 +1,6 @@
 package com.algorithm.base;
 
-import com.algorithm.base.basesort.BasicSort;
+import com.algorithm.base.sort.BasicSort;
 
 /**
  * 求数组中 arr[L] 到 arr[R] 的和,可以生成一个前缀和的数组

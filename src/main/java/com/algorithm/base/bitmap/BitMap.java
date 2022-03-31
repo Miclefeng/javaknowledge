@@ -14,6 +14,12 @@ public class BitMap {
         bits = new long[(max + 64) >> 6];
     }
 
+    /**
+     * >> 6      等同于   除以64
+     * val & 63  等同于   % 64
+     *
+     * @param val
+     */
     public void add(int val) {
         bits[val >> 6] |= (1L << (val & 63));
     }
