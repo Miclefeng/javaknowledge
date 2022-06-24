@@ -1,7 +1,7 @@
 package mybaits;
 
-import com.baseknowledge.mybatis.entity.PassAuth;
-import com.baseknowledge.mybatis.utils.MyBatisUtils;
+import com.javase.base.mybatis.entity.PassAuth;
+import com.javase.base.mybatis.utils.MyBatisUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
