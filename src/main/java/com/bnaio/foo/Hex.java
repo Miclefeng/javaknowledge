@@ -269,13 +269,4 @@ public class Hex {
         }
         return digit;
     }
-
-
-    public static void main(String[] args) {
-        final byte[] aas = hexStr2Bytes("AAAA0F0000E2AA00310104016400005B78");
-        System.err.println(aas);
-
-        System.err.println(byte2HexStr(aas));
-    }
-
 }
