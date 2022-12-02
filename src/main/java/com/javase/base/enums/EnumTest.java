@@ -18,6 +18,7 @@ public class EnumTest {
         System.out.println("===============");
         Season winter = Season.valueOf("WINTER");
         System.out.println(winter);
+        System.out.println(winter.getName() + " , " + winter.getDesc());
         winter.show();
     }
 }
@@ -60,6 +61,14 @@ enum Season implements info {
 
     private final String name;
     private final String desc;
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
 
     @Override
     public void show() {
