@@ -1,30 +1,22 @@
 package com.designpattern.pattern.creational.singleton;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-
 /**
  * @author miclefengzss
- * 2022/1/17 下午10:17
+ * 2022/12/5 上午10:20
  */
 public class Test {
 
-    public static void main(String[] args) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
-
-//        Class clazz = HungrySingleton.class;
-        Class clazz = StaticInnerClassSingleton.class;
-
-        Constructor constructor = clazz.getDeclaredConstructor();
-        constructor.setAccessible(true);
-
-        StaticInnerClassSingleton instance = StaticInnerClassSingleton.getInstance();
-        StaticInnerClassSingleton newInstance = (StaticInnerClassSingleton) constructor.newInstance();
-
-//        HungrySingleton instance = HungrySingleton.getInstance();
-//        HungrySingleton newInstance = (HungrySingleton) constructor.newInstance();
+    public static void main(String[] args) {
+        SingletonStaticInnerClass instance = SingletonStaticInnerClass.getInstance();
+        SingletonStaticInnerClass instance2 = SingletonStaticInnerClass.getInstance();
 
         System.out.println(instance);
-        System.out.println(newInstance);
-        System.out.println(instance == newInstance);
+        System.out.println(instance2);
+
+
+        SingletonEnum singletonEnum = SingletonEnum.getInstance();
+        SingletonEnum singletonEnum2 = SingletonEnum.getInstance();
+        System.out.println(singletonEnum);
+        System.out.println(singletonEnum2);
     }
 }
