@@ -3,12 +3,12 @@ package com.javase.thread.oldbase.threadobjectcommonmethods;
 /**
  * 3个线程， 线程1和2 首先被阻塞，线程3唤醒它们，start先执行不代表线程先启动。
  */
-public class ObjectWaitNotifyNall implements Runnable {
+public class ObjectWaitNotifyAll implements Runnable {
 
     private static final Object resource = new Object();
 
     public static void main(String[] args) {
-        Runnable r = new ObjectWaitNotifyNall();
+        Runnable r = new ObjectWaitNotifyAll();
         Thread t1 = new Thread(r);
         Thread t2 = new Thread(r);
 

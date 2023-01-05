@@ -1,18 +1,18 @@
-package com.javase.thread.oldbase.practice.blockingqueue;
+package com.javase.thread.base.question;
 
 import java.util.LinkedList;
 
 /**
  * @author miclefengzss
- * 2021/12/13 上午10:00
+ * 2023/1/5 下午9:35
  */
-public class SynchronizedBlockingQueue<T> {
+public class ContainerSynchronized<T> {
 
-    private LinkedList<T> list = new LinkedList<>();
+    final private LinkedList<T> list = new LinkedList<T>();
 
-    private static final int MAX = 10;
+    private static int MAX = 10;
 
-    private synchronized void put(T t) {
+    public synchronized void put(T t) {
         while (list.size() >= MAX) {
             try {
                 this.wait();
@@ -20,13 +20,12 @@ public class SynchronizedBlockingQueue<T> {
                 e.printStackTrace();
             }
         }
-
         list.add(t);
         System.out.println(Thread.currentThread().getName() + " -> list add: " + t + ", size: " + list.size());
         this.notifyAll();
     }
 
-    private synchronized T take() {
+    public synchronized T take() {
         T t;
         while (list.size() == 0) {
             try {
@@ -36,28 +35,28 @@ public class SynchronizedBlockingQueue<T> {
             }
         }
         t = list.poll();
-        this.notifyAll();
         System.out.println(Thread.currentThread().getName() + " -> list take: " + t + ", size: " + list.size());
+        this.notifyAll();
         return t;
     }
 
     public static void main(String[] args) {
-        SynchronizedBlockingQueue<Integer> blockingQueue = new SynchronizedBlockingQueue<>();
+        ContainerSynchronized<Integer> cs = new ContainerSynchronized<>();
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 2; i++) {
             new Thread(() -> {
-                for (int j = 1; j <= 10; j++) {
-                    blockingQueue.put(j);
+                for (int j = 0; j < 10; j++) {
+                    cs.put(j);
                 }
-            }, "P").start();
+            }, "p-" + i).start();
         }
 
         for (int i = 0; i < 10; i++) {
             new Thread(() -> {
-                for (int j = 0; j < 5; j++) {
-                    blockingQueue.take();
+                for (int j = 0; j < 2; j++) {
+                    cs.take();
                 }
-            }, "C").start();
+            }, "c-" + i).start();
         }
     }
 }

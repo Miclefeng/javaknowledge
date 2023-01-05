@@ -1,16 +1,13 @@
 package com.javase.thread.base;
 
 import java.util.Random;
-import java.util.concurrent.BrokenBarrierException;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.CyclicBarrier;
-import java.util.concurrent.Phaser;
+import java.util.concurrent.*;
 
 /**
  * @author miclefengzss
  * 2023/1/3 上午10:32
  */
-public class CountDownLatchCyclicBarrierPhaser {
+public class CountDownLatchCyclicBarrierPhaserExchanger {
 
     static Random r = new Random();
 
@@ -24,6 +21,9 @@ public class CountDownLatchCyclicBarrierPhaser {
         usingCyclicBarrier();
         System.out.println("=================");
         usingPhaser();
+        System.out.println("=================");
+        milliSleep(5000);
+        usingExchanger();
     }
 
     public static void usingCountDownLatch() {
@@ -105,6 +105,29 @@ public class CountDownLatchCyclicBarrierPhaser {
         }
         new Thread(new Person("新郎")).start();
         new Thread(new Person("新娘")).start();
+    }
+
+    private static void usingExchanger() {
+        Exchanger<String> exchanger = new Exchanger<>();
+        new Thread(() -> {
+            String s = "T1";
+            try {
+                s = exchanger.exchange(s);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println(Thread.currentThread().getName() + " " + s);
+        }, "t1").start();
+
+        new Thread(() -> {
+            String s = "T2";
+            try {
+                s = exchanger.exchange("T2");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println(Thread.currentThread().getName() + " " + s);
+        }, "t2").start();
     }
 
     static class Person implements Runnable {
