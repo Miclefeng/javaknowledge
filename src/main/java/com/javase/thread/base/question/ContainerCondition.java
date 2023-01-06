@@ -20,10 +20,10 @@ public class ContainerCondition<T> {
     Condition consumer = lock.newCondition();
 
     public void put(T t) {
+        lock.lock();
         try {
-            lock.lock();
             while (list.size() == MAX) {
-                    producer.await();
+                producer.await();
             }
             list.add(t);
             System.out.println(Thread.currentThread().getName() + " -> list add: " + t + ", size: " + list.size());
@@ -36,11 +36,11 @@ public class ContainerCondition<T> {
     }
 
     public T take() {
+        lock.lock();
         T t = null;
         try {
-            lock.lock();
             while (list.size() == 0) {
-                    consumer.await();
+                consumer.await();
             }
             t = list.poll();
             System.out.println(Thread.currentThread().getName() + " -> list take: " + t + ", size: " + list.size());
