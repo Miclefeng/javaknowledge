@@ -36,8 +36,8 @@ public class ContainerCondition<T> {
     }
 
     public T take() {
-        lock.lock();
         T t = null;
+        lock.lock();
         try {
             while (list.size() == 0) {
                 consumer.await();
