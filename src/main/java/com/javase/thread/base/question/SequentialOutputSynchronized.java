@@ -26,6 +26,7 @@ public class SequentialOutputSynchronized {
                         e.printStackTrace();
                     }
                 }
+                lock.notify();
             }
         });
 
@@ -41,6 +42,7 @@ public class SequentialOutputSynchronized {
                     is++;
                     lock.notify();
                 }
+                lock.notify();
             }
         });
 
