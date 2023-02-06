@@ -21,6 +21,7 @@ public class ArrayBlockingQueueLinkedBlockingQueue {
 
         arrayBlockingQueue.add("10 ");  // add 如果超出容器容量会报异常
         arrayBlockingQueue.offer("11 "); // offer 成功添加返回 true， 失败返回 false
+        arrayBlockingQueue.poll();
         arrayBlockingQueue.forEach(System.out::print);
         System.out.println();
         System.out.println("=================================");
