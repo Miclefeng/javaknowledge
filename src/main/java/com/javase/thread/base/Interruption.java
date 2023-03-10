@@ -20,10 +20,9 @@ public class Interruption {
 
         t1.start();
 
-        SleepHelper.sleepSecond(3);
+        SleepHelper.sleepSecond(1);
 
         mark = false;
-
 
         Thread t2 = new Thread(() -> {
             long j = 0;
@@ -34,7 +33,27 @@ public class Interruption {
         });
 
         t2.start();
-        SleepHelper.sleepSecond(3);
+        SleepHelper.sleepSecond(1);
         t2.interrupt();
+
+        System.out.println("===================");
+
+        Thread t3 = new Thread(() -> {
+            for (;;) {
+                if (Thread.interrupted()) {
+                    System.out.println("t3 interrupted");
+                    System.out.println(Thread.currentThread().isInterrupted());
+                    break;
+                }
+            }
+        });
+
+        t3.start();
+        System.out.println("t3 sleep 1 second");
+        SleepHelper.sleepSecond(1);
+        t3.interrupt();
+        SleepHelper.sleepSecond(1);
+        System.out.println(t3.isInterrupted());
+        System.out.println(t3.isInterrupted());
     }
 }
