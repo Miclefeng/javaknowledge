@@ -42,21 +42,21 @@ public class ChatServer {
     private void start() {
         try {
             /**
-             * 1. 创建Selector
-             */
-            selector = Selector.open();
-            /**
-             * 2. 通过 ServerSocketChannel 创建channel
+             * 1. 通过 ServerSocketChannel 创建channel
              */
             serverSocketChannel = ServerSocketChannel.open();
+            /**
+             * 2. ** 设置channel为非阻塞模式 **
+             */
+            serverSocketChannel.configureBlocking(false);
             /**
              * 3. 为 channel 绑定监听端口
              */
             serverSocketChannel.socket().bind(new InetSocketAddress(port));
             /**
-             * 4. ** 设置channel为非阻塞模式 **
+             * 4. 创建Selector
              */
-            serverSocketChannel.configureBlocking(false);
+            selector = Selector.open();
             /**
              * 5. 将 channel 注册到 selector 上，监听连接事件
              */

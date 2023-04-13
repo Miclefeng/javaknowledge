@@ -44,10 +44,6 @@ public class ChatClient {
     public void start() {
         try {
             /**
-             * 创建 selector
-             */
-            selector = Selector.open();
-            /**
              * 创建 socketChannel
              */
             socketChannel = SocketChannel.open();
@@ -56,14 +52,18 @@ public class ChatClient {
              */
             socketChannel.configureBlocking(false);
             /**
+             * 向服务器端发起连接请求
+             */
+            socketChannel.connect(new InetSocketAddress(host, port));
+            /**
+             * 创建 selector
+             */
+            selector = Selector.open();
+            /**
              * 将 channel 注册到 selector，监听 CONNECT 事件
              * 客户端连接到服务器，客户端的 channel 会触发一个 connect 事件
              */
             socketChannel.register(selector, SelectionKey.OP_CONNECT);
-            /**
-             * 向服务器端发起连接请求
-             */
-            socketChannel.connect(new InetSocketAddress(host, port));
             /**
              * 6. 循环等待新产生的事件
              */
