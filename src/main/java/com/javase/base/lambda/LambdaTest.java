@@ -1,6 +1,7 @@
 package com.javase.base.lambda;
 
-import org.junit.jupiter.api.Test;
+
+import org.junit.Test;
 
 import java.util.Comparator;
 import java.util.function.Consumer;

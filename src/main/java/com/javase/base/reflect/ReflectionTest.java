@@ -1,6 +1,6 @@
 package com.javase.base.reflect;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 /**
  * @author miclefengzss

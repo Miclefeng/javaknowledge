@@ -1,7 +1,7 @@
 package com.javase.base.collectionmap.maps;
 
 import com.sun.org.apache.xpath.internal.operations.String;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.util.*;
 

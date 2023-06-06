@@ -1,6 +1,6 @@
 package com.javase.base.iostream;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;

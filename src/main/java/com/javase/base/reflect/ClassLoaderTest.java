@@ -1,6 +1,6 @@
 package com.javase.base.reflect;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.io.FileReader;
 import java.io.IOException;

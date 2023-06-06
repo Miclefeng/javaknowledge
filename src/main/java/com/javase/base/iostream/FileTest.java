@@ -1,6 +1,7 @@
 package com.javase.base.iostream;
 
-import org.junit.jupiter.api.Test;
+
+import org.junit.Test;
 
 /**
  * @author miclefengzss
