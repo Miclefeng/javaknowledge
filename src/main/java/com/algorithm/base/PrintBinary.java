@@ -12,14 +12,19 @@ public class PrintBinary {
      * @param num
      */
     private static void print(int num) {
-        StringBuilder bin = new StringBuilder();
-        for (int i = 0; i < 32; i++) {
-            bin.insert(0, ((num & (1 << i)) == 0 ? "0" : "1"));
-        }
+//        StringBuilder bin = new StringBuilder();
+//        for (int i = 0; i < 32; i++) {
+//            bin.insert(0, ((num & (1 << i)) == 0 ? "0" : "1"));
+//        }
 //        for (int i = 31; i >= 0; i--) {
 //            System.out.print((num & (1 << i)) == 0 ? "0" : "1");
 //        }
-        System.out.println(bin.toString());
+//        System.out.println(bin);
+
+        for (int i = 31; i >= 0; i--) {
+            System.out.print((num & (1 << i)) == 0 ? "0" : 1);
+        }
+        System.out.println();
     }
 
     public static void main(String[] args) {

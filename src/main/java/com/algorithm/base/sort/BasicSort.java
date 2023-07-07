@@ -100,7 +100,36 @@ public class BasicSort {
         printArray(arr);
 //        selectionSort(arr);
 //        bubbleSort(arr);
-        insertSort(arr);
+//        insertSort(arr);
+        System.out.println("===============");
+        insertSortLittleToBig(arr);
+        System.out.println("===============");
         printArray(arr);
+
+    }
+
+    // 插入排序只能前插，所以需要从头部数据开始交换
+    public static void insertSortLittleToBig(int[] arr) {
+        int n = arr.length;
+        // 前插排序,从小到大排序
+        for (int end = 1; end < n; end++) {
+            // 需要保证前面的数不能比后边的数小,所以 end 需要每次+1，然后把新数和前边排好序的作比较
+            for (int pre = end - 1; pre >= 0 && arr[pre] > arr[pre + 1]; pre--) {
+                swap(arr, pre, pre + 1);
+            }
+            printArray(arr);
+        }
+    }
+
+    public static void insertSortBigToLittle(int[] arr) {
+        int n = arr.length;
+        // 前插排序,从小到大排序
+        for (int end = 1; end < n; end++) {
+            // 需要保证前面的数不能比后边的数小,所以 end 需要每次+1，然后把新数和前边排好序的作比较
+            for (int pre = end - 1; pre >= 0 && arr[pre] < arr[pre + 1]; pre--) {
+                swap(arr, pre, pre + 1);
+            }
+            printArray(arr);
+        }
     }
 }

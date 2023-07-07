@@ -24,7 +24,42 @@ public class SumOfFactorial {
         return ans;
     }
 
+    /**
+     * 求 n 个斐波那契数的和
+     *
+     * @param n
+     * @return
+     */
+    public static long foo(int n) {
+        System.out.print("1 ");
+        if (n <= 1) {
+            return 1;
+        }
+
+        System.out.print("1 ");
+        if (n == 2) {
+            return 2;
+        }
+
+        int pre = 1;
+        int cur = 1;
+        int ans = 0;
+        int fac;
+        for (int i = 2; i < n; i++) {
+            fac = pre + cur;
+            pre = cur;
+            cur = fac;
+            ans = ans + fac;
+            System.out.printf("%d ", fac);
+        }
+        System.out.println();
+        return ans;
+    }
+
     public static void main(String[] args) {
         System.out.println(f(4));
+        System.out.println("========================");
+
+        System.out.println(foo(10));
     }
 }

@@ -90,5 +90,10 @@ public class PrefixSum {
                 System.out.println("出错了！");
             }
         }
+
+        System.out.println("=======================================");
+        int[] fooArr = new int[]{1, 2, 3};
+        System.out.println("L : " + 2 + ", R : " + 2);
+        System.out.println("Test: " + test(fooArr, 2, 2) + ", Sum: " + rangeSum(fooArr, 2, 2));
     }
 }
