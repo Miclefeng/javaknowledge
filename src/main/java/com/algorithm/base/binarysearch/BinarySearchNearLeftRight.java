@@ -44,24 +44,10 @@ public class BinarySearchNearLeftRight {
 
     // 找到有序数组中 >=value 最左边的值的位置
     public static int nearestLeftIndex(int[] arr, int value) {
-        if (arr == null || arr.length == 0) {
-            return -1;
-        }
-
-        int l = 0;
-        int r = arr.length - 1;
-        int ans = -1;
-
-        while (l <= r) {
-            int mid = (l + r) / 2;
-            if (arr[mid] >= value) {
-                ans = mid;
-                r = mid - 1;
-            } else {
-                l = mid + 1;
-            }
-        }
-
+        // first
+//        if (arr == null || arr.length == 0) {
+//            return -1;
+//        }
 //        int l = 0;
 //        int r = arr.length - 1;
 //        int ans = -1;
@@ -74,22 +60,61 @@ public class BinarySearchNearLeftRight {
 //                l = mid + 1; // 数组中左边小于value，需要全部剔除
 //            }
 //        }
+
+        // second
+        if (arr == null || arr.length == 0) {
+            return -1;
+        }
+
+        int l = 0;
+        int r = arr.length - 1;
+        int ans = -1;
+        while (l <= r) {
+            int mid = l + ((r - l) >> 1);
+            if (arr[mid] >= value) {
+                ans = mid;
+                r = mid - 1;
+            } else {
+                l = mid + 1;
+            }
+        }
+
         return ans;
     }
 
     // 找到有序数组中 <= value 最右边的值的位置
     public static int nearestRightIndex(int[] arr, int value) {
+        // first
+//        if (arr == null || arr.length == 0) {
+//            return -1;
+//        }
+//
+//        // 1 4 5 7 9 10 11    6
+//        int l = 0;
+//        int r = arr.length - 1;
+//        int ans = -1;
+//
+//        while (l < r) {
+//            int mid = (l + r) / 2;
+//            if (arr[mid] > value) {
+//                r = mid - 1;
+//            } else {
+//                ans = mid;
+//                l = mid + 1;
+//            }
+//        }
+
+        // second
         if (arr == null || arr.length == 0) {
             return -1;
         }
 
-        // 1 4 5 7 9 10 11    6
+        int ans = -1;
         int l = 0;
         int r = arr.length - 1;
-        int ans = -1;
 
         while (l <= r) {
-            int mid = (l + r) / 2;
+            int mid = l + ((r - l) >> 1);
             if (arr[mid] > value) {
                 r = mid - 1;
             } else {

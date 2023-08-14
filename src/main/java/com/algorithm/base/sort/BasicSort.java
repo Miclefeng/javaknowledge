@@ -44,19 +44,11 @@ public class BasicSort {
         // 0  - N-3
         // 0  - N-(N-1)
         // 结尾位置在变化，end描述结尾位置的变化
-        for (int end = N - 1; end >= 0; end--) {
+        for (int end = N - 1; end > 0; end--) {
             // 从0开始，当前数和后一个数进行比较，大的话就交换
-            for (int second = 0; second < end; second++) {
-                if (arr[second] > arr[second + 1]) {
-                    swap(arr, second, second + 1);
-                }
-            }
-        }
-
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N - 1 - i; j++) {
+            for (int j = 0; j < end; j++) {
                 if (arr[j] > arr[j + 1]) {
-                    swap(arr, j + 1, j);
+                    swap(arr, j, j + 1);
                 }
             }
         }
@@ -75,6 +67,7 @@ public class BasicSort {
         // 0 - N
         // 结尾位置在变，end描述一个结尾的变化
         for (int end = 1; end < N; end++) {
+            // 插入排序只能从后往前插，每次结尾新加进来的数都要和前边的所有数比较，所以需要从后往前遍历
             // 先判断左边是否有数，有的话判断前一个数和当前数大小，小的话进行交换
             for (int pre = end - 1; pre >= 0 && arr[pre] > arr[pre + 1]; pre--) {
                 swap(arr, pre, pre + 1);
@@ -98,17 +91,17 @@ public class BasicSort {
     public static void main(String[] args) {
         int[] arr = {10, 8, 9, 2, 4, 1, 7, 6, 5, 3};
         printArray(arr);
-//        selectionSort(arr);
-//        bubbleSort(arr);
-//        insertSort(arr);
         System.out.println("===============");
-        insertSortLittleToBig(arr);
+//        selectionSort(arr);
+        bubbleSort(arr);
+//        insertSort(arr);
+//        insertSortBigToLittle(arr);
         System.out.println("===============");
         printArray(arr);
 
     }
 
-    // 插入排序只能前插，所以需要从头部数据开始交换
+    // 插入排序只能从后往前插
     public static void insertSortLittleToBig(int[] arr) {
         int n = arr.length;
         // 前插排序,从小到大排序

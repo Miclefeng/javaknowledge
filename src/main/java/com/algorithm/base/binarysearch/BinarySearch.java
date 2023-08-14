@@ -16,17 +16,19 @@ public class BinarySearch {
             int[] arr = generateRandomArray(maxSize, maxValue);
             Arrays.sort(arr);
             int value = (int) ((maxValue + 1) * Math.random());
-//            if (test(arr, value) != exist(arr, value)) {
-//                printArray(arr);
-//                System.out.println(value);
-//                System.out.println(test(arr, value));
-//                System.out.println(exist(arr, value));
-//                System.out.println("Error.");
-//                break;
-//            }
+
             if (exist(arr, value)) {
-                System.out.print("value : "+ value +" exist arr : ");
+                System.out.print("value : " + value + " exist arr : ");
                 printArray(arr);
+            }
+
+            if (test(arr, value) != exist(arr, value)) {
+                printArray(arr);
+                System.out.println(value);
+                System.out.println(test(arr, value));
+                System.out.println(exist(arr, value));
+                System.out.println("Error.");
+                break;
             }
         }
         System.out.println("nice.");
@@ -34,6 +36,7 @@ public class BinarySearch {
 
     // 在有序数组中找到某个值
     public static boolean exist(int[] arr, int value) {
+        // first
 //        if (arr == null || arr.length == 0) {
 //            return false;
 //        }
@@ -51,13 +54,34 @@ public class BinarySearch {
 //            }
 //        }
 //        return false;
+
+        // second
+//        if (arr == null || arr.length == 0) {
+//            return false;
+//        }
+//        int l = 0;
+//        int r = arr.length - 1;
+//        while (l <= r) {
+//            int mid = l + ((r - l) >> 1);
+//            if (arr[mid] == value) {
+//                return true;
+//            } else if (arr[mid] < value) {
+//                l = mid + 1;
+//            } else {
+//                r = mid - 1;
+//            }
+//        }
+//        return false;
+
+        // third
         if (arr == null || arr.length == 0) {
             return false;
         }
+
         int l = 0;
         int r = arr.length - 1;
         while (l <= r) {
-            int mid = (l + r) / 2;
+            int mid = l + ((r - l) >> 1);
             if (arr[mid] == value) {
                 return true;
             } else if (arr[mid] < value) {

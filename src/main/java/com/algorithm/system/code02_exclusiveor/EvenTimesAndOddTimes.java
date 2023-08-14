@@ -8,7 +8,7 @@ import java.util.Map;
  * @author miclefengzss
  * 2022/3/19 上午11:06
  */
-public class EventTimesAndOddTimes {
+public class EvenTimesAndOddTimes {
 
     /**
      * 一个数组中只有一个数出现奇数次，其它全部出现偶数次
@@ -97,8 +97,11 @@ public class EventTimesAndOddTimes {
         // 10110100
         // 01001100
         // 00000100
+        // 取出两个奇数异或后的结果最右边的 1，这位上的 1 肯定属于某一个奇数
         int rightOne = eor & (-eor);
         for (int i = 0; i < arr.length; i++) {
+            // 通过其中某一个数的某一位的 1，提取出其中一个奇数
+            // 不用管偶数个的数，因为 异或运算 他们的结果始终为 0
             if ((arr[i] & rightOne) != 0) {
                 anther ^= arr[i];
             }
