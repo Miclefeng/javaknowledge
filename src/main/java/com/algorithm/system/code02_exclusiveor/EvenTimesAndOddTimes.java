@@ -79,7 +79,7 @@ public class EvenTimesAndOddTimes {
     }
 
     /**
-     * 数组中有两个奇数数量不同的数，剩下的数全是偶数个
+     * 数组中有两种奇数数量不同的数，剩下的数全是偶数个
      *
      * @param arr
      * @return
