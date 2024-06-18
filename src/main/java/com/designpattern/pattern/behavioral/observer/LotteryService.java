@@ -3,26 +3,23 @@ package com.designpattern.pattern.behavioral.observer;
 /**
  * @Description: some desc
  * @Author: miclefengzss
- * @Date: 2023/6/15 15:04
+ * @Date: 2023/10/24 16:43
  */
 public abstract class LotteryService {
 
     private EventManager eventManager;
 
     public LotteryService() {
-        eventManager = new EventManagerServer(EventType.Message, EventType.MQ);
-        eventManager.subscribe(EventType.Message, new MessageEventListener());
-        eventManager.subscribe(EventType.MQ, new MQEventListener());
+        this.eventManager = new EventManager(EventManager.EventType.MQ, EventManager.EventType.Message);
+        eventManager.subscribe(EventManager.EventType.MQ, new MQEventListener());
+        eventManager.subscribe(EventManager.EventType.Message, new MessageEventListener());
     }
 
-    public Lottery lotteryAndMessage(String userId) {
-
-        Lottery lottery = lottery(userId);
-
-        eventManager.publish(EventType.Message, lottery);
-        eventManager.publish(EventType.MQ, lottery);
-        return lottery;
+    public void lotteryAndMessage(String uid) {
+        LotteryResult lottery = lottery(uid);
+        eventManager.notify(EventManager.EventType.MQ, lottery);
+        eventManager.notify(EventManager.EventType.Message, lottery);
     }
 
-    public abstract Lottery lottery(String userId);
+    public abstract LotteryResult lottery(String uid);
 }

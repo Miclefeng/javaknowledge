@@ -19,10 +19,10 @@ public class SelectorThread implements Runnable {
 
     public LinkedBlockingQueue<Channel> linkedBlockingQueue = new LinkedBlockingQueue<>();
 
-    private SelectorTreadGroup selectorTreadGroup;
+    private SelectorThreadGroup selectorThreadGroup;
 
-    public SelectorThread(SelectorTreadGroup selectorTreadGroup) {
-        this.selectorTreadGroup = selectorTreadGroup;
+    public SelectorThread(SelectorThreadGroup selectorThreadGroup) {
+        this.selectorThreadGroup = selectorThreadGroup;
         try {
             this.selector = Selector.open();
         } catch (IOException e) {
@@ -80,7 +80,7 @@ public class SelectorThread implements Runnable {
             client.configureBlocking(false);
             // 当前线程只做 accept 处理，将接收读取的事件(SelectionKey.OP_READ)注册到其他 selector
             // 此时 selectorTreadGroup 为 boss 的 SelectorThreadGroup
-            selectorTreadGroup.nextSelector(client);
+            selectorThreadGroup.nextSelector(client);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

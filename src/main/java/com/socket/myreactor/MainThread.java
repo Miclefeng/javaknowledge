@@ -9,9 +9,9 @@ public class MainThread {
 
     public static void main(String[] args) {
 
-        SelectorTreadGroup boss = new SelectorTreadGroup(1);
+        SelectorThreadGroup boss = new SelectorThreadGroup(1);
 
-        SelectorTreadGroup worker = new SelectorTreadGroup(3);
+        SelectorThreadGroup worker = new SelectorThreadGroup(3);
 
         boss.setWorker(worker);
 

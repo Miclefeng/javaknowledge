@@ -81,11 +81,12 @@ public class RedisWithReentrantLock
     public static void main(String args[])
     {
         Jedis jedis = new Jedis("127.0.0.1", 6379);
-        jedis.auth("Ps!s5tlshitsaym");
+        jedis.auth("zss25456585");
         RedisWithReentrantLock redis = new RedisWithReentrantLock(jedis);
 
         System.out.println(redis.lock("codeHole"));
         System.out.println(redis.lock("codeHole"));
+
         System.out.println(redis.unlock("codeHole"));
         System.out.println(redis.unlock("codeHole"));
     }

@@ -1,19 +1,20 @@
 package com.designpattern.pattern.behavioral.observer;
 
+import java.util.Date;
+
 /**
  * @Description: some desc
  * @Author: miclefengzss
- * @Date: 2023/6/15 15:43
+ * @Date: 2023/10/24 16:48
  */
-public class LotteryServiceImpl extends LotteryService{
+public class LotteryServiceImpl extends LotteryService {
 
-    private DrawCarService drawCarService = new DrawCarService();
+    private DrawHouseService drawHouseService = new DrawHouseService();
 
     @Override
-    public Lottery lottery(String userId) {
-
-        String result = drawCarService.lots(userId);
-
-        return new Lottery(userId, result, (int) (System.currentTimeMillis() / 1000));
+    public LotteryResult lottery(String uid) {
+        //1.摇号
+        String result = drawHouseService.lots(uid);
+        return new LotteryResult(uid, result, new Date());
     }
 }

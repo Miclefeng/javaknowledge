@@ -3,12 +3,12 @@ package com.designpattern.pattern.behavioral.observer;
 /**
  * @Description: some desc
  * @Author: miclefengzss
- * @Date: 2023/6/15 15:20
+ * @Date: 2023/10/24 16:30
  */
 public class MessageEventListener implements EventListener{
 
     @Override
-    public void doEvent(Lottery lottery) {
-        System.out.println("发送短信通知,用户ID: " + lottery.getUserId() + ", 中奖结果: " + lottery.getMessage() + ", 时间: " + lottery.getTime());
+    public void doEvent(LotteryResult lotteryResult) {
+        System.out.println("发送短信给：" + lotteryResult.getUid() + ", 中奖结果为：" + lotteryResult.getMessage() + ", 时间为：" + lotteryResult.getDateTime());
     }
 }

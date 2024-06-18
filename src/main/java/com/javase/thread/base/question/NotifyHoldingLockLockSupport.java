@@ -33,7 +33,6 @@ public class NotifyHoldingLockLockSupport {
                     LockSupport.unpark(t2);
                     LockSupport.park();
                 }
-                millisSleep();
             }
             System.out.println("t1 结束。");
         });
@@ -43,7 +42,6 @@ public class NotifyHoldingLockLockSupport {
             LockSupport.park();
             LockSupport.unpark(t1);
             System.out.println("t2 结束。");
-            millisSleep();
         });
 
         t2.start();

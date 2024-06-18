@@ -39,21 +39,23 @@ public class Interruption {
         System.out.println("===================");
 
         Thread t3 = new Thread(() -> {
-            for (;;) {
-                if (Thread.interrupted()) {
-                    System.out.println("t3 interrupted");
-                    System.out.println(Thread.currentThread().isInterrupted());
-                    break;
-                }
+//            for (;;) {
+//                if (Thread.interrupted()) {
+
+            try {
+                System.out.println("t3 start");
+                System.out.println(Thread.currentThread().isInterrupted());
+                Thread.currentThread().interrupt();
+                System.out.println("t3 interrupted....");
+            } catch (Exception e) {
+                System.out.println("t3 exception");
             }
+
+//                    break;
+//                }
+//            }
         });
 
         t3.start();
-        System.out.println("t3 sleep 1 second");
-        SleepHelper.sleepSecond(1);
-        t3.interrupt();
-        SleepHelper.sleepSecond(1);
-        System.out.println(t3.isInterrupted());
-        System.out.println(t3.isInterrupted());
     }
 }
