@@ -3,49 +3,63 @@ package com.algorithm.system.code04_mergesort;
 import java.util.Arrays;
 
 /**
- * @Description: some desc
+ * @Description:
  * @Author: miclefengzss
- * @Date: 2024/6/18 16:03
+ * @Date: 2024/6/19 10:51
  */
-public class MergeSort05 {
+public class MergeSortIterate04 {
 
     public static void mergeSort(int[] arr) {
-        if (arr == null || arr.length < 2) {
-            return;
-        }
-        process(arr, 0, arr.length - 1);
-    }
-
-    private static void process(int[] arr, int l, int r) {
-        if (l == r) {
+        if (null == arr || arr.length < 2) {
             return;
         }
 
-        int m = l + ((r - l) >> 1);
-        process(arr, l, m);
-        process(arr, m + 1, r);
-        merge(arr, l, m, r);
+        int mergeSize = 1;
+        int n = arr.length;
+
+        while (mergeSize < n) {
+            int l = 0;
+
+            while (l < n) {
+                // 中点位置
+                int m = l + mergeSize - 1;
+                // 没有右组直接退出
+                if (m >= n - 1) {
+                    break;
+                }
+                // 右组终点位置
+                int r = Math.min(m + mergeSize, n - 1);
+                merge(arr, l, m, r);
+                l = r + 1;
+            }
+
+            // 防止溢出
+            if (mergeSize > (n >> 1)) {
+                break;
+            }
+            mergeSize <<= 1;
+        }
     }
 
-    private static void merge(int[] arr, int l, int m, int r) {
+    public static void merge(int[] arr, int l, int m, int r) {
         int[] help = new int[r - l + 1];
-        int index = 0;
+        int i = 0;
         int p = l;
         int q = m + 1;
+
         while (p <= m && q <= r) {
-            help[index++] = arr[p] > arr[q] ? arr[q++] : arr[p++];
+            help[i++] = arr[p] < arr[q] ? arr[p++] : arr[q++];
         }
-
         while (p <= m) {
-            help[index++] = arr[p++];
+            help[i++] = arr[p++];
         }
-
         while (q <= r) {
-            help[index++] = arr[q++];
+            help[i++] = arr[q++];
         }
 
         System.arraycopy(help, 0, arr, l, help.length);
     }
+
 
     // for test
     public static int[] generateRandomArray(int maxSize, int maxValue) {
@@ -68,11 +82,11 @@ public class MergeSort05 {
 
     // for test
     public static boolean isEqual(int[] arr1, int[] arr2) {
-        if ((arr1 == null && arr2 != null) || (arr1 != null && arr2 == null)) {
-            return false;
-        }
         if (arr1 == null && arr2 == null) {
             return true;
+        }
+        if ((arr1 == null && arr2 != null) || (arr1 != null && arr2 == null)) {
+            return false;
         }
         if (arr1.length != arr2.length) {
             return false;
@@ -94,6 +108,7 @@ public class MergeSort05 {
         }
         System.out.println();
     }
+
 
     public static void main(String[] args) {
         int maxValue = 300;

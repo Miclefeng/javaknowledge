@@ -1,51 +1,63 @@
 package com.algorithm.system.code04_mergesort;
 
-import java.util.Arrays;
-
 /**
- * @Description: some desc
+ * @Description:
  * @Author: miclefengzss
- * @Date: 2024/6/18 16:03
+ * @Date: 2024/6/19 11:35
  */
-public class MergeSort05 {
+public class MergeSortSmallSum05 {
 
-    public static void mergeSort(int[] arr) {
-        if (arr == null || arr.length < 2) {
-            return;
+    public static int smallSum(int[] arr) {
+        if (null == arr || 2 > arr.length) {
+            return 0;
         }
-        process(arr, 0, arr.length - 1);
+
+        return process(arr, 0, arr.length - 1);
     }
 
-    private static void process(int[] arr, int l, int r) {
+    public static int process(int[] arr, int l, int r) {
         if (l == r) {
-            return;
+            return 0;
         }
 
         int m = l + ((r - l) >> 1);
-        process(arr, l, m);
-        process(arr, m + 1, r);
-        merge(arr, l, m, r);
+        return process(arr, l, m) + process(arr, m + 1, r) + merge(arr, l, m, r);
     }
 
-    private static void merge(int[] arr, int l, int m, int r) {
+    public static int merge(int[] arr, int l, int m, int r) {
         int[] help = new int[r - l + 1];
-        int index = 0;
+        int i = 0;
         int p = l;
         int q = m + 1;
+        int res = 0;
         while (p <= m && q <= r) {
-            help[index++] = arr[p] > arr[q] ? arr[q++] : arr[p++];
+            res += arr[p] < arr[q] ? arr[p] * (r - q + 1) : 0;
+            // 相等的时候先拷贝右边的
+            help[i++] = arr[p] < arr[q] ? arr[p++] : arr[q++];
         }
-
         while (p <= m) {
-            help[index++] = arr[p++];
+            help[i++] = arr[p++];
         }
-
         while (q <= r) {
-            help[index++] = arr[q++];
+            help[i++] = arr[q++];
         }
-
         System.arraycopy(help, 0, arr, l, help.length);
+        return res;
     }
+
+    public static int comparator(int[] arr) {
+        if (null == arr || 2 > arr.length) {
+            return 0;
+        }
+        int res = 0;
+        for (int i = 1; i < arr.length; i++) {
+            for (int j = 0; j < i; j++) {
+                res += arr[j] < arr[i] ? arr[j] : 0;
+            }
+        }
+        return res;
+    }
+
 
     // for test
     public static int[] generateRandomArray(int maxSize, int maxValue) {
@@ -62,7 +74,9 @@ public class MergeSort05 {
             return null;
         }
         int[] res = new int[arr.length];
-        System.arraycopy(arr, 0, res, 0, arr.length);
+        for (int i = 0; i < arr.length; i++) {
+            res[i] = arr[i];
+        }
         return res;
     }
 
@@ -85,34 +99,33 @@ public class MergeSort05 {
         return true;
     }
 
+    // for test
     public static void printArray(int[] arr) {
         if (arr == null) {
             return;
         }
-        for (int value : arr) {
-            System.out.print(value + " ");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
         }
         System.out.println();
     }
 
+    // for test
     public static void main(String[] args) {
-        int maxValue = 300;
+        int testTime = 1000000;
         int maxSize = 100;
-        int testTimes = 1000000;
-
-        System.out.println("Test Begin: ");
-        for (int i = 0; i < testTimes; i++) {
+        int maxValue = 100;
+        System.out.println("Test Begin:");
+        for (int i = 0; i < testTime; i++) {
             int[] arr1 = generateRandomArray(maxSize, maxValue);
             int[] arr2 = copyArray(arr1);
-            mergeSort(arr1);
-            Arrays.sort(arr2);
-            if (!isEqual(arr1, arr2)) {
-                System.out.println("Error.");
+            if (smallSum(arr1) != comparator(arr2)) {
                 printArray(arr1);
                 printArray(arr2);
+                System.out.println("Error.");
                 break;
             }
         }
-        System.out.println("Test End.");
+        System.out.println("Test Finish.");
     }
 }

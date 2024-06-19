@@ -1,7 +1,6 @@
 package com.algorithm.system.code04_mergesort;
 
 /**
- * @Description: some desc
  * @Author: miclefengzss
  * @Date: 2023/10/30 13:36
  */

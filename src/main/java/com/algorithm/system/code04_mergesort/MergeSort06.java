@@ -3,20 +3,20 @@ package com.algorithm.system.code04_mergesort;
 import java.util.Arrays;
 
 /**
- * @Description: some desc
  * @Author: miclefengzss
- * @Date: 2024/6/18 16:03
+ * @Date: 2024/6/19 08:58
  */
-public class MergeSort05 {
+public class MergeSort06 {
 
     public static void mergeSort(int[] arr) {
-        if (arr == null || arr.length < 2) {
+        if (null == arr || arr.length < 2) {
             return;
         }
+
         process(arr, 0, arr.length - 1);
     }
 
-    private static void process(int[] arr, int l, int r) {
+    public static void process(int[] arr, int l, int r) {
         if (l == r) {
             return;
         }
@@ -27,13 +27,14 @@ public class MergeSort05 {
         merge(arr, l, m, r);
     }
 
-    private static void merge(int[] arr, int l, int m, int r) {
+    public static void merge(int[] arr, int l, int m, int r) {
         int[] help = new int[r - l + 1];
         int index = 0;
         int p = l;
         int q = m + 1;
+
         while (p <= m && q <= r) {
-            help[index++] = arr[p] > arr[q] ? arr[q++] : arr[p++];
+            help[index++] = arr[p] < arr[q] ? arr[p++] : arr[q++];
         }
 
         while (p <= m) {
@@ -43,7 +44,6 @@ public class MergeSort05 {
         while (q <= r) {
             help[index++] = arr[q++];
         }
-
         System.arraycopy(help, 0, arr, l, help.length);
     }
 
